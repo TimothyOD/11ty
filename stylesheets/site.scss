@@ -1,0 +1,135 @@
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=BioRhyme+Expanded:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700;900&display=swap');
+// colors
+$colors: ( primary: #22084d,
+secondary: #ffc9e2,
+base: #22084d,
+hover: dimgrey,
+);
+@function color($color-name) {
+    @return map-get($colors,
+    $color-name);
+}
+
+// media
+$small: 500px;
+@mixin small {
+    @media (min-width: #{$small}) {
+        @content;
+    }
+}
+
+$medium: 650px;
+@mixin medium {
+    @media (min-width: #{$medium}) {
+        @content;
+    }
+}
+
+$desktop: 800px;
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+* html {
+    font-family: 'Work Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: color(base);
+    margin: 1rem;
+}
+
+footer {
+    padding: 2rem;
+    img {
+        max-width: 10rem;
+    }
+}
+
+// YNK CSS
+.main-container {
+    max-width: 1020px;
+    margin: 0 auto;
+}
+
+.event-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: hidden;
+    li {
+        list-style-type: none;
+    }
+    li img {
+        width: 100%;
+        height: auto;
+    }
+    .event-inner {
+        position: relative;
+    }
+    @include small {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    @include medium {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    @include desktop {
+        grid-template-columns: repeat(7, 1fr);
+    }
+}
+
+.event-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    color: color(primary);
+    background: color(secondary);
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    text-align: center;
+    transition: all 0.25s ease-in-out;
+    opacity: 0;
+    span {
+        font-family: 'Roboto Slab', serif;
+        font-weight: 300;
+        font-size: 1rem;
+    }
+    &:hover {
+        transition: all 0.25s ease-in-out;
+        opacity: 100;
+    }
+}
+
+.event-name {
+    font-family: 'BioRhyme Expanded', serif;
+    font-size: 1.5rem;
+    margin-top: -0.5rem;
+    .ynk-symbol {
+        position: relative;
+        top: 1.25px;
+        margin-right: 0.25rem;
+        font-size: 2rem;
+    }
+}
+
+// .event-performers {
+//     display: none;
+// }

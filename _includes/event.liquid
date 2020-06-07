@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes No Klub</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/site.css">
+</head>
+
+<body>
+    <header>
+        <h1><a href="../">≠</a></h1>
+    </header>
+    <main>
+        {%- if title %}
+        <h1>{{title}}</h1>{% endif %}
+        <h2>{{date}}</h2>
+        <h3>{{summary}}</h3>
+        <h2>{{performers}}</h2>
+        <h3>{{venue}}</h3>
+
+        <img src="/images/{{flyer}}" alt="{{flyer}}"> {{content}}
+    </main>
+</body>
+
+</html>
